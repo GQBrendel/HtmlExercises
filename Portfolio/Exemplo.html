@@ -1,0 +1,141 @@
+
+<html>
+
+<head>
+    <title>Exemplo GridLayout</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+#main {
+    font-family: sans-serif;
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+        #main div {
+            background-color: rgba(176, 196, 222, 0.5);
+            padding: 30px;
+            border: 2pt solid lightsteelblue;
+            border-radius: 3px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            box-shadow: 2px 2px 7px gray;
+            -webkit-box-shadow: 2px 2px 7px gray;
+            -moz-box-shadow: 2px 2px 7px gray;
+            color: steelblue;
+        }
+
+.esquerda {
+    grid-column: 1;
+    grid-row: 2 / 4;
+}
+
+.topo {
+    grid-column: 1 / 6;
+    grid-row: 1;
+}
+
+.meio {
+    grid-column: 2 / 5;
+    grid-row: 2 / 4;
+}
+
+.rodape {
+    grid-column: 2 / 5;
+    grid-row: 4;
+}
+
+.direita1 {
+    grid-column: 5;
+    grid-row: 2;
+}
+
+.direita2 {
+    grid-column: 5;
+    grid-row: 3;
+}
+
+.direita3 {
+    grid-column: 5;
+    grid-row: 4;
+}
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div class="topo">Topo</div>
+        <div class="esquerda">Esquerda</div>
+        <div class="meio">Meio
+                <br><br>
+                <input type="text" id="inputtext">
+                <br><br>
+                <input type="button" value="Fibonizer" id="btn">
+                <br><br>
+                <b id="ID"></b>
+
+        </div>
+        <div class="direita1">Direita 1</div>
+        <div class="direita2">Direita 2</div>
+        <div class="direita3">Direita 3</div>
+        <div class="rodape">Rodape</div>
+    </div>
+</body>
+<script>
+
+    function add(a, b)
+    {
+        while (a.length < b.length) a.unshift(0);
+        while (a.length > b.length) b.unshift(0);
+        
+        var carry = 0, sum = [];
+        
+            for (var i = a.length - 1; i >= 0; i--)
+            {
+                var s = a[i] + b[i] + carry;
+                if (s >= 10) {
+                    s = s - 10;
+                    carry = 1;
+                } else {
+                    carry = 0;
+                }
+                sum.unshift(s);
+            }
+        if (carry) sum.unshift(carry);
+        {
+            return sum;
+        }   
+    }
+
+function fib(n) 
+{
+
+    f1 =1, f2=2, r=1;
+
+    while(f1 > 1)
+    {
+        r = f1 + f2;
+    }
+    var f1 = [0];
+    var f2 = [1];
+
+    while (n--)
+    {
+        var f3 = add(f1, f2);
+        f1 = f2;
+        f2 = f3;
+    }
+    return f1.join("");
+}
+
+document.getElementById("btn").onclick = function ()
+{
+        var inputnum = parseFloat(document.getElementById("inputtext").value);
+        document.getElementById("ID").innerHTML = fib(inputnum).toString();
+};
+</script>
+
+</html>

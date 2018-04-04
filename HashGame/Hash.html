@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>GQBrendel Portfolio</title>
+        <meta charset="UTF-8">
+  		<!-- <link rel="stylesheet" type="text/css" href="Hash_Format.css"/>  -->
+    </head>
+    <style>
+   .wrapper
+            {
+                position: absolute;
+                top: 20%;
+                left: 36%;
+                display: grid;
+                grid-template-columns: repeat(3,150px);
+                grid-template-rows: repeat(3,150px);
+                justify-items: stretch;
+                align-items: stretch;
+            }
+    .wrapper > div
+    {
+        /* border: 2px solid coral; */
+        /* background: hotpink */
+    }
+    .wrapper > div:nth-of-type(odd)
+    {
+        
+        /* border: 2px solid coral; */
+        /* background: indigo; */
+    }
+    #A1
+    {
+
+    }
+    #gridImage
+    {
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+        pointer-events:none;     
+    }
+    #currentPlayer
+    {
+        padding-left: 40px;
+        max-width: 400px;
+        max-height: 400px;
+    }
+    .GridButton
+    {
+        background: tomato;
+        position: relative;
+        background: none;
+        outline: none;
+        border: none;
+        position: relative;
+        right: 15px;
+    }
+    
+    </style>
+    <body>
+        <div class="wrapper">
+            <div id="0" onclick="instantiateMark(this)"></div>
+            <div id="1" onclick="instantiateMark(this)"></div>
+            <div id="2" onclick="instantiateMark(this)"></div>
+            <div id="3" onclick="instantiateMark(this)"></div>
+            <div id="4" onclick="instantiateMark(this)"></div>
+            <div id="5" onclick="instantiateMark(this)"></div>
+            <div id="6" onclick="instantiateMark(this)"></div>
+            <div id="7" onclick="instantiateMark(this)"></div>
+            <div id="8" onclick="instantiateMark(this)"></div>
+            
+        </div>
+        
+        <img id = "gridImage" src="Art/Grid.png" align "center" />
+        <div>
+            <h1>
+                Current Player: <br>
+                <img id = "currentPlayer" src= "Art/Circle.png"/>
+
+            </h1>
+        </div>
+
+
+    
+    </body>
+    <script>
+
+        var gridCell = new Array(9);
+        var turn = 0;
+        function checkEnd(n)
+        {
+            if(gridCell[0] === gridCell[1] && gridCell[0] === gridCell[2] )
+            {
+                if(gridCell[0] != undefined)
+                  gotAVictory(gridCell[0]);
+
+            }
+            if(gridCell[0] === gridCell[3] && gridCell[0] === gridCell[6] )
+            {
+                if(gridCell[0] != undefined)
+                {
+                    gotAVictory(gridCell[0]);
+                }
+            }
+            if(gridCell[0] === gridCell[4] && gridCell[0] === gridCell[8] )
+            {
+                if(gridCell[0] != undefined)
+                gotAVictory(gridCell[0]);
+             }
+            if(gridCell[3] === gridCell[4] && gridCell[3] === gridCell[5])
+            {
+                if(gridCell[3] != undefined)
+                gotAVictory(gridCell[3]);
+            }
+            if(gridCell[6] == gridCell[7] && gridCell[6] == gridCell[8])
+            {
+                if(gridCell[6] != undefined)
+                gotAVictory(gridCell[6]);
+             }
+            if(gridCell[2] === gridCell[4] && gridCell[2] === gridCell[6])
+            {                
+                if(gridCell[2] != undefined)
+                gotAVictory(gridCell[2]);
+            }
+            if(gridCell[2] === gridCell[5] && gridCell[2] === gridCell[8])
+            {                
+                if(gridCell[2] != undefined)
+                gotAVictory(gridCell[2]);
+            }
+            if(gridCell[1] === gridCell[4] && gridCell[1] === gridCell[7])
+            {                
+                if(gridCell[1] != undefined)
+                gotAVictory(gridCell[1]);
+            }
+        }
+        function gotAVictory(winnerPlayer)
+        {               
+            document.getElementById("currentPlayer").style.padding = 100;    
+            if(winnerPlayer === 0)
+            {
+                document.getElementById("currentPlayer").src= "Art/BallWinner.png";
+            }
+            else if(winnerPlayer === 1)
+            {
+                document.getElementById("currentPlayer").src= "Art/XWinner.png";
+            }  
+        }
+
+
+        function instantiateMark(id)
+        {
+            if(turn === 0)
+            {
+                if(gridCell[id.id] === undefined) //Se a celula está unasigned
+                {
+                    document.getElementById("currentPlayer").src= "Art/X.png";
+                    turn = 1;
+                    gridCell[id.id] = 0;
+                    var myImage = new Image();
+                    myImage.src = "Art/Circle.png";
+                    id.appendChild(myImage);
+                    checkEnd(id.id);
+                }
+            }
+            else if (turn === 1)
+            {                
+                if(gridCell[id.id] === undefined) //Se a celula está unasigned
+               {
+                   
+                document.getElementById("currentPlayer").src= "Art/Circle.png";
+                     turn = 0;
+                    gridCell[id.id] = 1;
+                    var myImage = new Image();
+                    myImage.src = "Art/X.png";
+                    id.appendChild(myImage);
+                    checkEnd(id.id);
+                }
+            }
+             
+        }
+
+    </script>
+</html>

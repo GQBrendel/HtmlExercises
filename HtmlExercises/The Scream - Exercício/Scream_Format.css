@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display');
+@import url('https://fonts.googleapis.com/css?family=Caveat');	
+	
+	body {
+		font-family: 'Helvetica', 'Arial';
+		font-size: 12pt;
+		margin: 0px;
+	}
+
+	h1,
+	h5,
+	h6 {
+		text-align: center;
+		font-family: Helvetica;
+	}
+
+	footer {
+		padding: 1px;
+		text-align: center;
+		font-family: 'Caveat', cursive;
+		width: 100%;
+	}
+
+	.description
+	{
+		font-family: 'Caveat', cursive;
+	}
+	#OrangeBox
+	{
+		margin: 10px;
+		padding: 10px;
+		background-color: tomato;
+		float: left;
+	}
+	#title {		
+		font-family: 'Sedgwick Ave Display', cursive;
+		text-shadow: 2px 2px 1px black;
+		color: wheat;
+	}
+
+	table {
+		border: 1px solid gray;
+		box-shadow: 5px 5px 5px #333;
+		-webkit-box-shadow: 5px 5px 5px #333;
+		-moz-box-shadow: 5px 5px 5px #333;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+
+		margin: 0 auto;
+		margin-bottom: 20px;
+		font-family: 'Caveat', cursive;
+	}
+	#LeftBlock{
+		position: relative;
+		width: 50%;
+		height: 100%;
+		
+		float: left;
+		
+	}
+	#RigthBlock{
+		position: relative;
+		width: 50%;
+		float: right;
+	}
+	#PageContainer
+	{
+		
+		background-color: whitesmoke;
+		/* max-width: 1000px;
+		max-height: 500px; */
+
+		width: 50vw;
+		height: 30vw;
+		margin-left: 25%;
+		margin-right: 25%;
+		margin-top: 2%;
+
+	}
+	*{
+		box-sizing: border-box;
+	}
+	#InfoTable
+	{
+		border: none;
+		box-shadow: none;
+		position: relative;
+		width: 100%;
+		height: 50%;
+		margin: 10px;
+		padding: 10px;
+		
+	}
+	.underline
+	{
+		border-bottom: 1px solid black;
+	}
+
+	#image {
+		float: left;
+		/* width: 50%; */
+		position: relative;
+		height: 5%;
+		margin: 10px;
+		padding: 10px;
+		background: #0d2c40;
+		text-align: center;
+	}

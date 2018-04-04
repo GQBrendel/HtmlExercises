@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>GQBrendel Calculator</title>
+        <meta charset="UTF-8">
+        <script src="CalculatorTS.ts"></script>
+    </head>
+    <body onload="onStart()">
+    <style>
+            .wrapper
+            {
+                display: grid;
+                /* grid-template-columns: 1fr 2fr 1fr; */
+                grid-template-columns: repeat(4,1fr);
+                grid-template-rows: repeat(6, 1fr);
+                max-width: 10px;
+                /* grid-auto-rows: minmax(100px,auto); */
+                grid-gap: 1em;
+                justify-items: stretch;
+                align-items: stretch;
+            }
+           .wrapper > button{
+                 background: goldenrod; 
+                padding: 1em;        
+            }
+            #writter{
+            grid-column: 1/5;
+            background: violet;
+                text-align: right;
+                line-height: 50px;
+            }
+            #operationScreen{
+            grid-column: 1/5;
+            background: blanchedalmond;
+            text-align: right;
+            line-height: 50px;
+            } 
+            #zero{
+                grid-column: 1/3;
+            }  
+    </style>
+    <div class="wrapper">
+        <div id="operationScreen">0</div> 
+        <div id="writter">0</div>      
+        <button onclick="AC()" >AC</button>
+        <button>+/-</button>
+        <button>%</button>
+        <button id = "divButton">÷</button>
+        <button onclick="getNumberInput(this)">7</button>
+        <button onclick="getNumberInput(this)">8</button>
+        <button onclick="getNumberInput(this)">9</button>
+        <button id = "multButton">&times</button>
+        <button onclick="getNumberInput(this)">4</button>
+        <button onclick="getNumberInput(this)">5</button>
+        <button onclick="getNumberInput(this)">6</button>
+        <button id = "subButton">-</button>
+        <button onclick="getNumberInput(this)">1</button>
+        <button onclick="getNumberInput(this)">2</button>
+        <button onclick="getNumberInput(this)">3</button>
+        <button id = "sumButton">+</button>
+        <button id = "zero" onclick="getNumberInput(this)" >0</button>
+        <button>.</button>
+        <button onclick="executeOperation(true)">=</button>
+    </div>
+    </body>
+</html>
